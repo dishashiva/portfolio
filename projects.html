@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects — Disha S</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            'soft-blue':'#e0f2fe',
+            'blue-gray':'#f1f5f9',
+            'wood':'#d4a574'
+          },
+          fontFamily:{
+            sans:['Inter','ui-sans-serif','system-ui']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-slate-800">
+
+<header class="border-b border-blue-gray">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="index.html" class="text-xl font-semibold tracking-tight">Disha S</a>
+    <nav class="flex gap-6 text-sm font-medium text-slate-600">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="text-slate-900">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="max-w-5xl mx-auto px-6 py-16">
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-10">Selected work</h1>
+
+  <div class="space-y-12">
+    <!-- project 1 -->
+    <div class="grid md:grid-cols-3 gap-8 items-center">
+      <div class="md:col-span-2 bg-soft-blue/30 rounded-2xl p-8">
+        <h2 class="text-xl font-bold mb-2">AgriCon — AI & Blockchain App for Farmers</h2>
+        <p class="text-slate-600 mb-4">
+          Designed an approachable PWA that lets rural farmers sell crops and receive AI advice via voice UI.
+          Reduced task-completion time by 34 % through iterative usability tests and calm-colour palette.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-white rounded-full text-xs">Figma</span>
+          <span class="px-3 py-1 bg-white rounded-full text-xs">Tailwind</span>
+          <span class="px-3 py-1 bg-white rounded-full text-xs">React</span>
+        </div>
+        <a href="https://agricon.netlify.app/" target="_blank" class="btn inline-block px-4 py-2 rounded-lg bg-sky-600 text-white text-sm shadow hover:bg-sky-700">Live Site →</a>
+      </div>
+      <div>
+        <img src="assets/proj-1.jpg" alt="AgriCon mock-up" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+
+    <!-- project 2 -->
+    <div class="grid md:grid-cols-3 gap-8 items-center">
+      <div class="md:order-2 md:col-span-2 bg-blue-gray rounded-2xl p-8">
+        <h2 class="text-xl font-bold mb-2">Synaptic Fitness — AI Workout Companion</h2>
+        <p class="text-slate-600 mb-4">
+          48-hour hackathon MVP. Created user-flows for real-time posture tracking and auto-generated workouts.
+          Micro-interactions and soft gradients keep the experience motivating yet serene.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-3 py-1 bg-white rounded-full text-xs">Figma</span>
+          <span class="px-3 py-1 bg-white rounded-full text-xs">Prototyping</span>
+          <span class="px-3 py-1 bg-white rounded-full text-xs">Usability Testing</span>
+        </div>
+      </div>
+      <div class="md:order-1">
+        <img src="assets/proj-2.jpg" alt="Synaptic mock-up" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center text-xs text-slate-400 py-8">
+  © <span id="yr"></span> Disha S
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>

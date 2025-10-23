@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume — Disha S</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            'soft-blue':'#e0f2fe',
+            'blue-gray':'#f1f5f9',
+            'wood':'#d4a574'
+          },
+          fontFamily:{
+            sans:['Inter','ui-sans-serif','system-ui']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-slate-800">
+
+<header class="border-b border-blue-gray">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="index.html" class="text-xl font-semibold tracking-tight">Disha S</a>
+    <nav class="flex gap-6 text-sm font-medium text-slate-600">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html" class="text-slate-900">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="max-w-5xl mx-auto px-6 py-12">
+  <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+    <h1 class="text-3xl font-extrabold tracking-tight">Curriculum Vitae</h1>
+    <div class="flex gap-3">
+      <a href="assets/resume.pdf" download class="px-5 py-2.5 rounded-lg bg-sky-600 text-white text-sm font-semibold shadow hover:bg-sky-700">Download PDF</a>
+      <a href="assets/resume.pdf" target="_blank" class="px-5 py-2.5 rounded-lg bg-blue-gray text-slate-800 text-sm font-semibold shadow hover:bg-slate-200">Open Fullscreen</a>
+    </div>
+  </div>
+
+  <div class="bg-blue-gray rounded-2xl p-2 shadow">
+    <iframe src="assets/resume.pdf" class="w-full h-[75vh] rounded-xl"></iframe>
+  </div>
+  <p class="text-center text-xs text-slate-500 mt-4">If preview fails, please download the PDF.</p>
+</section>
+
+<footer class="text-center text-xs text-slate-400 py-8">
+  © <span id="yr"></span> Disha S
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>

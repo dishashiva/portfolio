@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>About — Disha S</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            'soft-blue':'#e0f2fe',
+            'blue-gray':'#f1f5f9',
+            'wood':'#d4a574'
+          },
+          fontFamily:{
+            sans:['Inter','ui-sans-serif','system-ui']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-slate-800">
+
+<header class="border-b border-blue-gray">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="index.html" class="text-xl font-semibold tracking-tight">Disha S</a>
+    <nav class="flex gap-6 text-sm font-medium text-slate-600">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="text-slate-900">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="max-w-5xl mx-auto px-6 py-16">
+  <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-10">About me</h1>
+
+  <div class="grid md:grid-cols-3 gap-10">
+    <div class="md:col-span-2 space-y-6">
+      <div class="bg-blue-gray rounded-2xl p-8">
+        <h2 class="text-lg font-semibold mb-2">Story</h2>
+        <p class="text-slate-600">
+          Growing up in Bengaluru I was surrounded by tech, but I fell in love with the <em>why</em> behind it.
+          Studying CS taught me logic; hackathons taught me empathy. Today I merge those worlds—designing calm,
+          inclusive interfaces and leading agile teams to ship them on time.
+        </p>
+      </div>
+
+      <div class="bg-soft-blue/30 rounded-2xl p-8">
+        <h2 class="text-lg font-semibold mb-3">Education</h2>
+        <ul class="space-y-2 text-slate-700">
+          <li><strong>B.E. Computer Science</strong> — Atria Institute of Technology (2023-2027)</li>
+          <li><strong>Google Project Management Cert.</strong> — Coursera (in progress)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <img src="assets/photo.png" alt="Disha" class="rounded-2xl shadow-lg">
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-bold mt-14 mb-6">Skills & tooling</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white border border-blue-gray rounded-2xl p-6">
+      <h3 class="font-semibold mb-3 text-sky-700">Design</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Figma</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">User Research</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Wireframing</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Prototyping</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Usability Testing</span>
+      </div>
+    </div>
+    <div class="bg-white border border-blue-gray rounded-2xl p-6">
+      <h3 class="font-semibold mb-3 text-sky-700">Web & PM</h3>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">HTML / CSS / JS</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Tailwind</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">React basics</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Agile / Scrum</span>
+        <span class="px-3 py-1 bg-blue-gray rounded-full text-sm">Jira / Trello</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center text-xs text-slate-400 py-8">
+  © <span id="yr"></span> Disha S
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
