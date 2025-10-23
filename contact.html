@@ -62,18 +62,20 @@
   </div>
 
   <!-- simple form (no backend) -->
-  <form action="https://formspree.io/f/your-form-id" method="POST" class="bg-blue-gray rounded-2xl p-8 space-y-5">
+  <form method="POST" class="bg-blue-gray rounded-2xl p-8 space-y-5">
     <h2 class="font-semibold text-lg">Or drop a line</h2>
     <input required type="text" name="name" placeholder="Name" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-sky-600">
     <input required type="email" name="_replyto" placeholder="Email" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-sky-600">
     <textarea required name="message" rows="4" placeholder="Message" class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-sky-600"></textarea>
-    <button type="submit" class="px-5 py-2.5 rounded-lg bg-sky-600 text-white text-sm font-semibold shadow hover:bg-sky-700">Send</button>
+    <button type="submit" onclick="alert('Successfully sent! Will reach out to you ASAP')" class="px-5 py-2.5 rounded-lg bg-sky-600 text-white text-sm font-semibold shadow hover:bg-sky-700">Send</button>
   </form>
 </section>
 
 <footer class="text-center text-xs text-slate-400 py-8">
   © <span id="yr"></span> Disha S
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear()
+</script>
+
 </body>
 </html>
