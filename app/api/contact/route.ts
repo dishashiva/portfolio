@@ -9,9 +9,9 @@ export async function POST(request: NextRequest) {
   }
 
   // accept either generic SMTP env vars or the older YAHOO_* vars
-  const user = process.env.SMTP_USER || process.env.YAHOO_USER
-  const pass = process.env.SMTP_PASS || process.env.YAHOO_PASS
-  const receive = process.env.RECEIVE_EMAIL || user
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  const receive = process.env.RECEIVE_EMAIL || user;
   console.log('SMTP user:', user, 'receive:', receive)
 
   if (!user || !pass) {
@@ -30,8 +30,7 @@ export async function POST(request: NextRequest) {
   // Try SMTP connection options in order to help diagnose network/port/TLS issues.
   // Yahoo commonly supports port 465 (secure) and 587 (STARTTLS).
   const smtpAttempts = [
-    { host: 'smtp.mail.yahoo.com', port: 465, secure: true },
-    { host: 'smtp.mail.yahoo.com', port: 587, secure: false, requireTLS: true }
+    { host: 'smtp.gmail.com', port: 587, secure: false },
   ]
 
   let lastError: any = null
