@@ -1,0 +1,46 @@
+---
+
+---
+
+<nav class="glass-nav fixed top-0 w-full z-50 px-4 md:px-8 py-4 md:py-6 flex flex-wrap justify-between items-center transition-all duration-300 bg-white/70">
+    <a href="/" class="text-xl md:text-2xl font-bold tracking-tighter flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <span class="accent-dot"></span> Disha
+    </a>
+    
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-dark-green hover:text-pink transition-colors focus:outline-none z-50 relative cursor-pointer">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest order-2 md:order-none">
+        <a href="/" class="hover:text-red transition-colors">Home</a>
+        <a href="/projects" class="hover:text-red transition-colors">Projects</a>
+        <a href="/skills" class="hover:text-red transition-colors">Skills</a>
+    </div>
+
+    <!-- Dev Token Desktop -->
+    <div class="hidden sm:flex text-[10px] font-bold py-1 px-3 border border-dark-green rounded-full gap-2 items-center order-1 md:order-none mr-4 md:mr-0">
+        STUDENT / DEV
+        <i data-lucide="sparkles" class="w-3 h-3 text-pink"></i>
+    </div>
+
+    <!-- Mobile Navigation Panel -->
+    <div id="mobile-menu" class="hidden w-full basis-full mt-4 flex-col gap-4 text-xs font-bold uppercase tracking-widest md:hidden border-t border-dark-green/10 pt-4 pb-2">
+        <a href="/" class="hover:text-red transition-colors py-2 px-2 hover:bg-dark-green/5 rounded">Home</a>
+        <a href="/projects" class="hover:text-red transition-colors py-2 px-2 hover:bg-dark-green/5 rounded">Projects</a>
+        <a href="/skills" class="hover:text-red transition-colors py-2 px-2 hover:bg-dark-green/5 rounded">Skills</a>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn?.addEventListener('click', () => {
+            menu?.classList.toggle('hidden');
+            menu?.classList.toggle('flex');
+        });
+    });
+</script>

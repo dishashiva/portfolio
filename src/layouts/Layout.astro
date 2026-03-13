@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+	<body>
+        <div class="bloom pink-bloom"></div>
+        <div class="bloom yellow-bloom"></div>
+
+        <Navigation />
+
+        <main class="pt-48 px-8 max-w-7xl mx-auto min-h-screen">
+		    <slot />
+        </main>
+
+        <Footer />
+
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+
+            // Smooth reveal on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(50px)";
+                card.style.transition = "all 0.8s cubic-bezier(0.23, 1, 0.32, 1)";
+                observer.observe(card);
+            });
+
+            // Mouse-reactive light follow
+            window.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth) * 10 - 5;
+                const y = (e.clientY / window.innerHeight) * 10 - 5;
+                document.querySelectorAll('.bloom').forEach(bloom => {
+                    (bloom as HTMLElement).style.transform = `translate(${x}%, ${y}%) scale(1.1)`;
+                });
+            });
+        </script>
+	</body>
+</html>

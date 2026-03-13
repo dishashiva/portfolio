@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects: {
+    id: string;
+    category: string;
+    title: string;
+    description: string;
+    image: string;
+    theme: "pink" | "yellow" | "red";
+    tags: string[];
+    filterClass?: string;
+    mtClass?: string;
+}[] = [
+    {
+        id: "01",
+        category: "WEB APP",
+        title: "E-Commerce<br>Platform",
+        description:
+            "A full-stack premium retail experience built with modern tech.",
+        image: "/assets/proj-1.jpg",
+        theme: "pink",
+        tags: ["REACT", "NODE"],
+    },
+    {
+        id: "02",
+        category: "UI/UX",
+        title: "Finance<br>Dashboard",
+        description: "Simplifying complex data with beautiful layouts.",
+        image: "/assets/proj-2.jpg",
+        theme: "yellow",
+        tags: ["FIGMA", "PROTOTYPING"],
+        mtClass: "md:translate-y-16",
+    },
+    {
+        id: "03",
+        category: "WEB APP",
+        title: "Social<br>Connect​",
+        description: "An AI-based social media moderation system.",
+        image: "/assets/proj-3.jpg",
+        theme: "red",
+        filterClass: "filter sepia",
+        tags: ["AGILE", "NODE"],
+    },
+    {
+        id: "04",
+        category: "WEB APP",
+        title: "Commune<br>Connect​",
+        description:
+            "A real-time social platform with AI group summarization and SOS alerts.",
+        image: "/assets/proj-4.jpg",
+        theme: "pink",
+        filterClass: "filter blur-[1px]",
+        mtClass: "md:translate-y-16",
+        tags: ["NEXT.JS", "PYTHON"],
+    },
+];
+---
+
+<Layout title="Projects // Disha S">
+    <section class="mb-20">
+        <h1 class="serif text-5xl md:text-8xl mb-6">
+            Featured <span class="text-gradient italic">Works.</span>
+        </h1>
+        <p class="max-w-md text-lg text-neutral-600">
+            A showcase of technical creations, design experiments, and fully
+            managed projects.
+        </p>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-40">
+        {
+            projects.map((project) => (
+                <ProjectCard
+                    id={project.id}
+                    category={project.category}
+                    title={project.title}
+                    description={project.description}
+                    image={project.image}
+                    theme={project.theme}
+                    tags={project.tags}
+                    filterClass={project.filterClass}
+                    mtClass={project.mtClass}
+                />
+            ))
+        }
+    </section>
+
+    <!-- GitHub Profile Section -->
+    <!-- <section
+        class="col-span-1 md:col-span-2 glass-card rounded-[2rem] p-10 md:p-20 flex flex-col md:flex-row gap-10 items-center justify-between mb-20 relative overflow-hidden group"
+    >
+        <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+                <i data-lucide="github" class="w-10 h-10 text-dark-green"></i>
+                <span
+                    class="text-xs font-bold text-dark-green uppercase tracking-widest block"
+                    >GitHub Activity</span
+                >
+            </div>
+            <h3 class="serif text-5xl md:text-6xl mb-6 italic">Open Source</h3>
+            <p class="text-xl text-neutral-600 mb-8 max-w-lg">
+                Consistent contributions, 50+ repositories, and actively
+                maintaining libraries that thousands of developers use daily.
+            </p>
+            <a
+                href="https://github.com"
+                target="_blank"
+                class="border-b-2 border-dark-green font-bold pb-2 hover:text-pink hover:border-pink transition-all inline-flex items-center gap-2"
+            >
+                Visit Profile <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+
+        <div
+            class="relative w-full md:w-1/3 aspect-square glass-card rounded-full flex flex-col items-center justify-center overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-pink to-yellow opacity-20 group-hover:opacity-40 transition-opacity"
+            >
+            </div>
+            <div class="relative z-10 text-center">
+                <p class="text-6xl font-bold mb-2">1.2k</p>
+                <p
+                    class="text-sm font-bold uppercase tracking-widest text-neutral-800"
+                >
+                    Commits this year
+                </p>
+            </div>
+        </div>
+    </section> -->
+</Layout>

@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SkillCard from "../components/SkillCard.astro";
+
+const skills: {
+    title: string;
+    description: string;
+    icon: string;
+    colorTheme: "pink" | "yellow" | "red";
+}[] = [
+    {
+        title: "Frontend",
+        description: "React, Astro, Tailwind, JavaScript",
+        icon: "code",
+        colorTheme: "pink",
+    },
+    {
+        title: "Backend",
+        description: "Node.js, Python, SQL",
+        icon: "database",
+        colorTheme: "yellow",
+    },
+    {
+        title: "Design",
+        description: "Figma, Adobe XD, UI/UX",
+        icon: "pen-tool",
+        colorTheme: "red",
+    },
+    {
+        title: "Management",
+        description: "Agile, Notion, Leadership",
+        icon: "users",
+        colorTheme: "pink",
+    },
+    {
+        title: "Version Control",
+        description: "GitHub, CI/CD",
+        icon: "git-branch",
+        colorTheme: "yellow",
+    },
+    {
+        title: "DevOps",
+        description: "AWS, Vercel",
+        icon: "server",
+        colorTheme: "red",
+    },
+    {
+        title: "Tools",
+        description: "VS Code, Canva",
+        icon: "layout",
+        colorTheme: "pink",
+    },
+    {
+        title: "Soft Skills",
+        description: "Communication, Mentorship",
+        icon: "message-square",
+        colorTheme: "yellow",
+    },
+];
+---
+
+<Layout title="Skills // Disha S">
+    <section class="mb-20 text-center max-w-2xl mx-auto">
+        <h1 class="serif text-5xl md:text-8xl mb-6">
+            Technical <span class="text-gradient italic">Arsenal.</span>
+        </h1>
+        <p class="text-lg text-neutral-600">
+            A comprehensive view of my capabilities across the development stack
+            and design tools.
+        </p>
+    </section>
+
+    <!-- Skills Grid -->
+    <section
+        class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 mb-40"
+    >
+        {
+            skills.map((skill) => (
+                <SkillCard
+                    title={skill.title}
+                    description={skill.description}
+                    icon={skill.icon}
+                    colorTheme={skill.colorTheme}
+                />
+            ))
+        }
+    </section>
+</Layout>
