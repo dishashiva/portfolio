@@ -9,9 +9,10 @@ interface Props {
 	tags: string[];
     filterClass?: string;
     mtClass?: string;
+    link?: string;
 }
 
-const { id, category, title, description, image, theme, tags, filterClass = "", mtClass = "" } = Astro.props;
+const { id, category, title, description, image, theme, tags, filterClass = "", mtClass = "", link = "#" } = Astro.props;
 
 const borderColors = {
 	pink: 'border-t-pink group-hover:border-pink',
@@ -35,9 +36,9 @@ const iconHoverColors = {
     <div class="relative z-10 w-full h-full flex flex-col justify-between">
         <div class="flex justify-between items-start">
             <span class="text-xs font-bold opacity-40 bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">{id} / {category}</span>
-            <div class={`w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/50 flex items-center justify-center ${bgHoverColors[theme]} ${borderColors[theme]} ${iconHoverColors[theme]} transition-all cursor-pointer`}>
+            <a href={link} target="_blank" class={`w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/50 flex items-center justify-center ${bgHoverColors[theme]} ${borderColors[theme]} ${iconHoverColors[theme]} transition-all cursor-pointer`}>
                 <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-            </div>
+            </a>
         </div>
         <div class="mt-auto transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
             <h3 class="serif text-4xl md:text-5xl mb-3 text-white drop-shadow-lg font-bold" set:html={title}></h3>

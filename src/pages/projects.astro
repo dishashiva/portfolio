@@ -12,26 +12,30 @@ const projects: {
     tags: string[];
     filterClass?: string;
     mtClass?: string;
+    link?: string;
 }[] = [
     {
         id: "01",
         category: "WEB APP",
-        title: "E-Commerce<br>Platform",
+        title: "Agri<br>Connect",
         description:
-            "A full-stack premium retail experience built with modern tech.",
+            "A PWA that connects farmers to markets via OTP-based login, featuring AI-powered crop health scanning and transaction logging.",
         image: "/assets/proj-1.jpg",
         theme: "pink",
         tags: ["REACT", "NODE"],
+        link: "https://github.com/Dqrshan/agri-connect",
     },
     {
         id: "02",
         category: "UI/UX",
-        title: "Finance<br>Dashboard",
-        description: "Simplifying complex data with beautiful layouts.",
+        title: "Synaptic<br>Fitness",
+        description:
+            "A MVP for real-time posture tracking and auto-generated workouts for mental and physical fitness.",
         image: "/assets/proj-2.jpg",
         theme: "yellow",
         tags: ["FIGMA", "PROTOTYPING"],
         mtClass: "md:translate-y-16",
+        link: "https://github.com/dishashiva",
     },
     {
         id: "03",
@@ -42,6 +46,7 @@ const projects: {
         theme: "red",
         filterClass: "filter sepia",
         tags: ["AGILE", "NODE"],
+        link: "https://github.com/dishashiva/Mini-Project",
     },
     {
         id: "04",
@@ -54,6 +59,7 @@ const projects: {
         filterClass: "filter blur-[1px]",
         mtClass: "md:translate-y-16",
         tags: ["NEXT.JS", "PYTHON"],
+        link: "https://github.com/Dqrshan/commune-connect",
     },
 ];
 ---
@@ -83,6 +89,7 @@ const projects: {
                     tags={project.tags}
                     filterClass={project.filterClass}
                     mtClass={project.mtClass}
+                    link={project.link}
                 />
             ))
         }
