@@ -2,87 +2,83 @@
 import Layout from "../layouts/Layout.astro";
 import SkillCard from "../components/SkillCard.astro";
 
-const skills: {
-    title: string;
-    description: string;
-    icon: string;
-    colorTheme: "pink" | "yellow" | "red";
-}[] = [
+const categories = [
     {
-        title: "Frontend",
-        description: "React, Astro, Tailwind, JavaScript",
-        icon: "code",
-        colorTheme: "pink",
+        label: "Frontend",
+        skills: [
+            { title: "React", icon: "code" },
+            { title: "Astro", icon: "code" },
+            { title: "Tailwind CSS", icon: "code" },
+            { title: "JavaScript", icon: "code" },
+        ],
     },
     {
-        title: "Backend",
-        description: "Node.js, Python, SQL",
-        icon: "database",
-        colorTheme: "yellow",
+        label: "Backend",
+        skills: [
+            { title: "Node.js", icon: "database" },
+            { title: "Python", icon: "database" },
+            { title: "SQL", icon: "database" },
+        ],
     },
     {
-        title: "Design",
-        description: "Figma, UI/UX",
-        icon: "pen-tool",
-        colorTheme: "red",
+        label: "Design",
+        skills: [
+            { title: "Figma", icon: "pen-tool" },
+            { title: "UI/UX", icon: "pen-tool" },
+            { title: "Prototyping", icon: "pen-tool" },
+        ],
     },
     {
-        title: "Management",
-        description: "Agile, Notion, Leadership",
-        icon: "users",
-        colorTheme: "pink",
+        label: "DevOps",
+        skills: [
+            { title: "AWS", icon: "server" },
+            { title: "Vercel", icon: "server" },
+            { title: "CI/CD", icon: "server" },
+        ],
     },
     {
-        title: "Version Control",
-        description: "GitHub, CI/CD",
-        icon: "git-branch",
-        colorTheme: "yellow",
+        label: "Tools",
+        skills: [
+            { title: "GitHub", icon: "git-branch" },
+            { title: "VS Code", icon: "layout" },
+            { title: "Notion", icon: "layout" },
+            { title: "Canva", icon: "layout" },
+        ],
     },
     {
-        title: "DevOps",
-        description: "AWS, Vercel",
-        icon: "server",
-        colorTheme: "red",
-    },
-    {
-        title: "Tools",
-        description: "VS Code, Canva",
-        icon: "layout",
-        colorTheme: "pink",
-    },
-    {
-        title: "Soft Skills",
-        description: "Communication, Mentorship",
-        icon: "message-square",
-        colorTheme: "yellow",
+        label: "Soft Skills",
+        skills: [
+            { title: "Communication", icon: "message-square" },
+            { title: "Leadership", icon: "users" },
+            { title: "Mentorship", icon: "users" },
+            { title: "Agile", icon: "users" },
+        ],
     },
 ];
 ---
 
 <Layout title="Skills // Disha S">
-    <section class="mb-20 text-center max-w-2xl mx-auto">
-        <h1 class="serif text-5xl md:text-8xl mb-6">
-            Technical <span class="text-gradient italic">Arsenal.</span>
-        </h1>
-        <p class="text-lg text-neutral-600">
-            A comprehensive view of my capabilities across the development stack
-            and design tools.
+    <section class="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-40 pb-20">
+        <p class="reveal text-xs font-medium uppercase tracking-widest text-ink-faint mb-3">Capabilities</p>
+        <h1 class="reveal serif text-4xl md:text-6xl italic mb-4" style="transition-delay: 0.06s">What I work with.</h1>
+        <p class="reveal text-sm text-ink-muted max-w-md" style="transition-delay: 0.12s">
+            A comprehensive view across the development stack and design tools.
         </p>
     </section>
 
-    <!-- Skills Grid -->
-    <section
-        class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 mb-40"
-    >
-        {
-            skills.map((skill) => (
-                <SkillCard
-                    title={skill.title}
-                    description={skill.description}
-                    icon={skill.icon}
-                    colorTheme={skill.colorTheme}
-                />
-            ))
-        }
+    <section class="max-w-6xl mx-auto px-6 md:px-10 pb-24 md:pb-32 space-y-16">
+        {categories.map((cat, ci) => (
+            <div class="reveal" style={`transition-delay: ${ci * 0.06}s`}>
+                <p class="text-xs font-medium uppercase tracking-widest text-ink-faint mb-5">{cat.label}</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    {cat.skills.map((skill) => (
+                        <SkillCard
+                            title={skill.title}
+                            icon={skill.icon}
+                        />
+                    ))}
+                </div>
+            </div>
+        ))}
     </section>
 </Layout>

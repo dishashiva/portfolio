@@ -5,51 +5,41 @@ interface Props {
 	title: string;
 	description: string;
 	image: string;
-	theme: 'pink' | 'yellow' | 'red';
 	tags: string[];
-    filterClass?: string;
-    mtClass?: string;
-    link?: string;
+	link?: string;
 }
 
-const { id, category, title, description, image, theme, tags, filterClass = "", mtClass = "", link = "#" } = Astro.props;
-
-const borderColors = {
-	pink: 'border-t-pink group-hover:border-pink',
-	yellow: 'border-t-yellow group-hover:border-yellow',
-	red: 'border-t-red group-hover:border-red',
-};
-
-const bgHoverColors = {
-	pink: 'group-hover:bg-pink',
-	yellow: 'group-hover:bg-yellow',
-	red: 'group-hover:bg-red',
-};
-
-const iconHoverColors = {
-    pink: 'group-hover:text-white',
-    yellow: 'group-hover:text-dark-green',
-    red: 'group-hover:text-white'
-}
+const { id, category, title, description, image, tags, link = "#" } = Astro.props;
 ---
-<div class={`glass-card rounded-[2rem] p-8 md:p-10 flex flex-col justify-between min-h-[400px] md:min-h-[500px] w-full group overflow-hidden relative border-t-4 ${borderColors[theme]} ${mtClass}`}>
-    <div class="relative z-10 w-full h-full flex flex-col justify-between">
-        <div class="flex justify-between items-start">
-            <span class="text-xs font-bold opacity-40 bg-white/20 px-3 py-1 rounded-full backdrop-blur-md">{id} / {category}</span>
-            <a href={link} target="_blank" class={`w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/50 flex items-center justify-center ${bgHoverColors[theme]} ${borderColors[theme]} ${iconHoverColors[theme]} transition-all cursor-pointer`}>
-                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-            </a>
-        </div>
-        <div class="mt-auto transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-            <h3 class="serif text-4xl md:text-5xl mb-3 text-white drop-shadow-lg font-bold" set:html={title}></h3>
-            <p class="text-white/90 drop-shadow mb-4">{description}</p>
-            <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 flex-wrap">
-                {tags.map((tag) => (
-                    <span class="text-[10px] font-bold py-1 px-3 border border-white/50 rounded-full text-white backdrop-blur-sm">{tag}</span>
-                ))}
+
+<a href={link} target="_blank" rel="noopener noreferrer" class="card block group">
+    <div class="flex flex-col md:flex-row">
+        <!-- Text -->
+        <div class="flex-1 p-6 md:p-8 flex flex-col justify-between order-2 md:order-1">
+            <div>
+                <span class="text-[10px] font-medium uppercase tracking-widest text-ink-faint mb-3 block">{id} / {category}</span>
+                <h3 class="font-medium text-xl md:text-2xl mb-3 text-ink group-hover:text-accent transition-colors duration-300">{title}</h3>
+                <p class="text-sm text-ink-muted leading-relaxed mb-4">{description}</p>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex gap-2 flex-wrap">
+                    {tags.map((tag) => (
+                        <span class="text-[10px] font-medium py-1 px-2.5 border border-border rounded-full text-ink-faint">{tag}</span>
+                    ))}
+                </div>
+                <svg class="w-4 h-4 text-ink-faint group-hover:text-accent transition-colors duration-300 shrink-0 ml-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 12L12 4M12 4H6M12 4v6"/>
+                </svg>
             </div>
         </div>
+        <!-- Image -->
+        <div class="w-full md:w-48 lg:w-56 shrink-0 overflow-hidden bg-surface-warm order-1 md:order-2 rounded-t-xl md:rounded-t-none md:rounded-r-xl">
+            <img
+                src={image}
+                alt={title}
+                loading="lazy"
+                class="w-full h-48 md:h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            />
+        </div>
     </div>
-    <img src={image} alt={category} class={`absolute inset-0 w-full h-full object-cover z-0 opacity-80 group-hover:scale-110 group-hover:opacity-60 transition-all duration-700 mix-blend-overlay ${filterClass}`} />
-    <div class="absolute inset-0 bg-gradient-to-t from-dark-green/90 via-dark-green/20 to-transparent z-0"></div>
-</div>
+</a>

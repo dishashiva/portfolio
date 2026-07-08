@@ -1,34 +1,13 @@
 ---
 interface Props {
 	title: string;
-	description: string;
 	icon: string;
-	colorTheme: 'pink' | 'yellow' | 'red';
 }
 
-const { title, description, icon, colorTheme } = Astro.props;
-
-const hoverColors = {
-	pink: 'hover:border-pink',
-	yellow: 'hover:border-yellow',
-	red: 'hover:border-red',
-};
-
-const bgColors = {
-	pink: 'bg-pink/5',
-	yellow: 'bg-yellow/5',
-	red: 'bg-red/5',
-};
-
-const textColors = {
-	pink: 'text-pink',
-	yellow: 'text-yellow',
-	red: 'text-red',
-};
+const { title, icon } = Astro.props;
 ---
-<div class={`glass-card rounded-[2rem] p-8 flex flex-col items-center text-center group ${hoverColors[colorTheme]} transition-all duration-300 relative overflow-hidden`}>
-    <div class={`absolute inset-0 ${bgColors[colorTheme]} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
-    <i data-lucide={icon} class={`w-10 h-10 mb-4 ${textColors[colorTheme]} group-hover:scale-110 transition-transform`}></i>
-    <h3 class="font-bold text-xl mb-2 text-dark-green">{title}</h3>
-    <p class="text-sm text-neutral-600">{description}</p>
+
+<div class="border border-border-subtle rounded-xl p-4 md:p-5 group hover:border-border transition-colors duration-300">
+    <i data-lucide={icon} class="w-4 h-4 text-ink-faint mb-3 group-hover:text-accent transition-colors duration-300"></i>
+    <h3 class="font-medium text-sm text-ink">{title}</h3>
 </div>
