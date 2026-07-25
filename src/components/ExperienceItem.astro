@@ -3,35 +3,48 @@ interface Props {
 	date: string;
 	title: string;
 	company: string;
-	icon: string;
-	theme: 'accent' | 'muted' | 'warm';
+	logo?: string;
+	description?: string;
+	tags?: string[];
 }
 
-const { date, title, company, icon, theme } = Astro.props;
-
-const dotColor = {
-    accent: 'bg-accent',
-    muted: 'bg-ink-faint',
-    warm: 'bg-amber-400',
-};
-
-const iconColor = {
-    accent: 'text-accent',
-    muted: 'text-ink-faint',
-    warm: 'text-amber-500',
-};
+const { date, title, company, logo, description, tags = [] } = Astro.props;
 ---
 
-<div class="flex items-start gap-6 py-8 border-b border-border-subtle last:border-b-0 group">
-    <div class="relative shrink-0 mt-1">
-        <div class={`w-2 h-2 rounded-full ${dotColor[theme]}`}></div>
-    </div>
+<div class="flex items-start gap-4 md:gap-6 py-6 md:py-7 border-b border-border-subtle last:border-b-0 group">
+    <!-- Logo Avatar -->
+    {logo ? (
+        <div class="w-12 h-12 rounded-xl bg-surface-warm border border-border-subtle flex items-center justify-center p-2 shrink-0 group-hover:border-border group-hover:shadow-xs transition-all duration-300">
+            <img src={logo} alt={company} class="w-full h-full object-contain rounded-md" loading="lazy" />
+        </div>
+    ) : (
+        <div class="w-12 h-12 rounded-xl bg-surface-warm border border-border-subtle flex items-center justify-center text-ink-muted shrink-0">
+            <span class="text-sm font-semibold text-ink">{company.charAt(0)}</span>
+        </div>
+    )}
 
     <div class="flex-1 min-w-0">
-        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-1">
-            <h3 class="font-medium text-base text-ink">{title}</h3>
-            <span class="text-xs text-ink-faint shrink-0">{date}</span>
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+            <h3 class="font-medium text-base md:text-lg text-ink group-hover:text-accent transition-colors duration-300">{title}</h3>
+            <span class="text-xs font-mono text-ink-faint shrink-0">{date}</span>
         </div>
-        <p class="text-sm text-ink-muted">{company}</p>
+        <p class="text-xs md:text-sm font-medium text-ink-muted mb-2">{company}</p>
+
+        {description && (
+            <p class="text-xs md:text-sm text-ink-muted leading-relaxed mb-3">
+                {description}
+            </p>
+        )}
+
+        {tags && tags.length > 0 && (
+            <div class="flex flex-wrap gap-2 mt-2">
+                {tags.map((tag) => (
+                    <span class="text-[10px] font-medium px-2.5 py-0.5 rounded-full border border-border-subtle bg-surface-warm/50 text-ink-faint">
+                        {tag}
+                    </span>
+                ))}
+            </div>
+        )}
     </div>
 </div>
+

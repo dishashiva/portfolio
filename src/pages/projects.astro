@@ -1,74 +1,121 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import ProjectCard, { type ProjectLink } from "../components/ProjectCard.astro";
 
-const projects = [
+interface ProjectItem {
+    id: string;
+    category: string;
+    title: string;
+    description: string;
+    gradientStyle: string;
+    accentColor: string;
+    iconType: string;
+    tags: string[];
+    links: ProjectLink[];
+}
+
+const projects: ProjectItem[] = [
     {
         id: "01",
-        category: "WEB APP",
-        title: "AgriConnect",
+        category: "CLOUD & AI",
+        title: "Multi Agent Autonomous SOC",
         description:
-            "A PWA connecting farmers to markets via OTP-based login, featuring AI-powered crop health scanning and transaction logging.",
-        image: "/assets/proj-1.jpg",
-        tags: ["React", "Node"],
-        link: "https://github.com/Dqrshan/agri-connect",
+            "An orchestration platform built over cloud architecture featuring 3 autonomous AI agents: Watcher, Investigator, and Responder. The Watcher monitors system log streams, Investigator identifies root cause origins, and Responder executes automated fixes while escalating critical issues for manual intervention.",
+        gradientStyle: "from-slate-950 via-indigo-950 to-slate-900",
+        accentColor: "#818cf8",
+        iconType: "soc",
+        tags: ["Cloud Architecture", "AI Agents", "Python", "Security Automation"],
+        links: [],
     },
     {
         id: "02",
-        category: "UI/UX",
-        title: "Synaptic Fitness",
+        category: "WEB APP & AI",
+        title: "AI Powered Career Platform",
         description:
-            "A MVP for real-time posture tracking and auto-generated workouts for mental and physical fitness.",
-        image: "/assets/proj-2.jpg",
-        tags: ["Figma", "Prototyping"],
-        link: "https://github.com/dishashiva",
+            "Developed as part of the Infosys Springboard virtual internship. Features an ATS resume parsing engine that scores resumes, personalized skill-based course & certification recommendations, targeted job listings, dynamic career pathways, and an AI chat assistant.",
+        gradientStyle: "from-slate-950 via-teal-950 to-emerald-950",
+        accentColor: "#2dd4bf",
+        iconType: "career",
+        tags: ["React", "ATS Parser", "AI Assistant", "Infosys Springboard"],
+        links: [
+            {
+                type: "github",
+                label: "GitHub",
+                url: "https://github.com/dishashiva/AI-powered_Career_Guidance",
+            },
+        ],
     },
     {
         id: "03",
-        category: "WEB APP",
+        category: "WEB APP & AI",
         title: "Social Connect",
-        description: "An AI-based social media moderation system.",
-        image: "/assets/proj-3.jpg",
-        tags: ["Agile", "Node"],
-        link: "https://github.com/dishashiva/Mini-Project",
+        description:
+            "An intelligent social media moderation system. Evaluates user comments across social media posts in real time using a dynamic vulgarity & toxicity score, automatically warning, flagging, blocking, or deleting policy-violating comments.",
+        gradientStyle: "from-slate-950 via-purple-950 to-rose-950",
+        accentColor: "#f43f5e",
+        iconType: "social",
+        tags: ["Node.js", "AI Moderation", "Express", "MongoDB"],
+        links: [
+            {
+                type: "github",
+                label: "GitHub",
+                url: "https://github.com/dishashiva/Mini-Project",
+            },
+        ],
     },
     {
         id: "04",
-        category: "WEB APP",
-        title: "Commune Connect",
+        category: "WEB APP & AI",
+        title: "AgriConnect",
         description:
-            "A real-time social platform with AI group summarization and SOS alerts.",
-        image: "/assets/proj-4.jpg",
-        tags: ["Next.js", "Python"],
-        link: "https://github.com/Dqrshan/commune-connect",
+            "A Google Solutions Challenge project connecting farmers directly with markets. Displays live vegetable market trends & historical price charts. Allows farmers to list produce for sale and markets to place offer bids. Features an AI crop health detector analyzing leaf images and agricultural metadata (soil, irrigation, fertilizers) for instant disease diagnosis and treatment.",
+        gradientStyle: "from-slate-950 via-emerald-950 to-teal-950",
+        accentColor: "#10b981",
+        iconType: "agri",
+        tags: ["React", "PWA", "AI Crop Vision", "Google Challenge"],
+        links: [
+            {
+                type: "github",
+                label: "GitHub",
+                url: "https://github.com/Dqrshan/agri-connect",
+            },
+            {
+                type: "demo",
+                label: "Live Demo",
+                url: "https://agricon.netlify.app",
+            },
+        ],
     },
 ];
 ---
 
 <Layout title="Work // Disha S">
-    <section class="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-40 pb-20">
+    <section class="max-w-6xl mx-auto px-6 md:px-10 pt-32 md:pt-40 pb-16">
         <p class="reveal text-xs font-medium uppercase tracking-widest text-ink-faint mb-3">Projects</p>
         <h1 class="reveal serif text-4xl md:text-6xl italic mb-4" style="transition-delay: 0.06s">Selected work.</h1>
         <p class="reveal text-sm text-ink-muted max-w-md" style="transition-delay: 0.12s">
-            Technical creations, design experiments, and managed projects.
+            Technical creations, AI engineering, and cloud platforms.
         </p>
     </section>
 
     <section class="max-w-6xl mx-auto px-6 md:px-10 pb-24 md:pb-32">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
             {projects.map((project, i) => (
-                <div class="reveal" style={`transition-delay: ${i * 0.08}s`}>
+                <div class="reveal h-full" style={`transition-delay: ${i * 0.08}s`}>
                     <ProjectCard
                         id={project.id}
                         category={project.category}
                         title={project.title}
                         description={project.description}
-                        image={project.image}
+                        gradientStyle={project.gradientStyle}
+                        accentColor={project.accentColor}
+                        iconType={project.iconType}
                         tags={project.tags}
-                        link={project.link}
+                        links={project.links}
                     />
                 </div>
             ))}
         </div>
     </section>
 </Layout>
+

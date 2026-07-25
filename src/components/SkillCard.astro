@@ -1,13 +1,27 @@
 ---
 interface Props {
 	title: string;
-	icon: string;
+	iconUrl?: string;
+	iconSvg?: string;
 }
 
-const { title, icon } = Astro.props;
+const { title, iconUrl, iconSvg } = Astro.props;
 ---
 
-<div class="border border-border-subtle rounded-xl p-4 md:p-5 group hover:border-border transition-colors duration-300">
-    <i data-lucide={icon} class="w-4 h-4 text-ink-faint mb-3 group-hover:text-accent transition-colors duration-300"></i>
-    <h3 class="font-medium text-sm text-ink">{title}</h3>
+<div class="inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-border-subtle bg-surface-warm/60 hover:bg-surface hover:border-border hover:shadow-xs transition-all duration-200 group cursor-default">
+    {iconUrl ? (
+        <img 
+            src={iconUrl} 
+            alt={title} 
+            loading="lazy" 
+            class="w-5 h-5 object-contain shrink-0 transition-transform duration-200 group-hover:scale-110" 
+        />
+    ) : iconSvg ? (
+        <span class="w-5 h-5 shrink-0 transition-transform duration-200 group-hover:scale-110 flex items-center justify-center" set:html={iconSvg} />
+    ) : (
+        <span class="w-2 h-2 rounded-full bg-accent shrink-0"></span>
+    )}
+    <span class="text-xs md:text-sm font-medium text-ink group-hover:text-accent transition-colors duration-200">{title}</span>
 </div>
+
+
