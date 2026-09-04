@@ -1,7 +1,9 @@
 1. Multi Agent Autonomous SOC: an orchestration built over a cloud platform with 3 agents - watcher, investigator, responder - the watcher watches for logs, investigator finds out the origin of the issue, responder fixes it. critical issues are reported to the user for manual fixes. 
+- GitHub: https://github.com/dishashiva/Multi-Agent-SOC
 
 2. AI Powered Career Platform: as a part of my Infosys springboard virtual internship, i worked on an ai powered career platform where users can upload their resumes that gets parsed with ATS score. based on theirs skills, they get course/certification recommendations, job recommendations & listings, career paths and an AI chat assistant.
 - GitHub: https://github.com/dishashiva/AI-powered_Career_Guidance
+- Demo: https://ai-powered-career-guidance-seven.vercel.app/
 
 
 3. Social Connect: a social media moderation system where users comments are moderated in social media posts. comments are warned, flagged, blocked or deleted based on vulgarity score. 
